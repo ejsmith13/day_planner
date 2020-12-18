@@ -97,7 +97,7 @@
         <section class="col-md-2 saveBtn"><i>Add</i></section>
       </section>
       <section class="row hour">
-        <section class="col-md-2 border">2:00</section>
+        <section class="col-md-2 border" id= "2">2:00</section>
         <textarea
           class="col-md-8 border"
           name="two"
@@ -147,12 +147,25 @@
     <script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>
     <script>
       var date = dayjs().format("MMMM-DD-YYYY");
+      var time = dayjs().format("H");
 
-      $("#currentDay").text(date)
+      $("#currentDay").text(date);
 
+
+      function color(){
+        if (time < 14){
+          $("#2").addClass("past")
+        } else if (time = 14) {
+          $("#2").addClass("present")
+        } else {
+          $("#2").addClass("future")
+        }
+        
+      }
+      color();
       
 
-      console.log(date)
+      console.log(date);
       console.log(dayjs(date).format("MMMM-DD-YYYY" + " " + "hh:mm:ss"));
     </script>
   </body>
