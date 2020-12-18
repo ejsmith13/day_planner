@@ -30,61 +30,130 @@
     </header>
     <div class="container">
       <!-- Timeblocks go here -->
-      <section class= "row hour">
+      <section class="row hour">
         <section class="col-md-2 border">8:00</section>
-        <textarea class= "col-md-8 border" name="eight" id="" cols="30" rows="3"></textarea>
-        <section class="col-md-2 saveBtn"><i>Save</i></section>
+        <textarea
+          class="col-md-8 border"
+          name="eight"
+          id=""
+          cols="30"
+          rows="3"
+        ></textarea>
+        <section class="col-md-2 saveBtn"><i>Add</i></section>
       </section>
-      <section class= "row hour">
+      <section class="row hour">
         <section class="col-md-2 border">9:00</section>
-        <textarea class= "col-md-8 border" name="nine" id="" cols="30" rows="3"></textarea>
-        <section class="col-md-2 saveBtn"><i>Save</i></section>
+        <textarea
+          class="col-md-8 border"
+          name="nine"
+          id=""
+          cols="30"
+          rows="3"
+        ></textarea>
+        <section class="col-md-2 saveBtn"><i>Add</i></section>
       </section>
-      <section class= "row hour">
+      <section class="row hour">
         <section class="col-md-2 border">10:00</section>
-        <textarea class= "col-md-8 border" name="ten" id="" cols="30" rows="3"></textarea>
-        <section class="col-md-2 saveBtn"><i>Save</i></section>
+        <textarea
+          class="col-md-8 border"
+          name="ten"
+          id=""
+          cols="30"
+          rows="3"
+        ></textarea>
+        <section class="col-md-2 saveBtn"><i>Add</i></section>
       </section>
-      <section class= "row hour">
+      <section class="row hour">
         <section class="col-md-2 border">11:00</section>
-        <textarea class= "col-md-8 border" name="eleven" id="" cols="30" rows="3"></textarea>
-        <section class="col-md-2 saveBtn"><i>Save</i></section>
+        <textarea
+          class="col-md-8 border"
+          name="eleven"
+          id=""
+          cols="30"
+          rows="3"
+        ></textarea>
+        <section class="col-md-2 saveBtn"><i>Add</i></section>
       </section>
-      <section class= "row hour">
+      <section class="row hour">
         <section class="col-md-2 border">12:00</section>
-        <textarea class= "col-md-8 border" name="twelve" id="" cols="30" rows="3"></textarea>
-        <section class="col-md-2 saveBtn"><i>Save</i></section>
+        <textarea
+          class="col-md-8 border"
+          name="twelve"
+          id=""
+          cols="30"
+          rows="3"
+        ></textarea>
+        <section class="col-md-2 saveBtn"><i>Add</i></section>
       </section>
-      <section class= "row hour">
+      <section class="row hour">
         <section class="col-md-2 border">1:00</section>
-        <textarea class= "col-md-8 border" name="one" id="" cols="30" rows="3"></textarea>
-        <section class="col-md-2 saveBtn"><i>Save</i></section>
+        <textarea
+          class="col-md-8 border"
+          name="one"
+          id=""
+          cols="30"
+          rows="3"
+        ></textarea>
+        <section class="col-md-2 saveBtn"><i>Add</i></section>
       </section>
-      <section class= "row hour">
+      <section class="row hour">
         <section class="col-md-2 border">2:00</section>
-        <textarea class= "col-md-8 border" name="two" id="" cols="30" rows="3"></textarea>
-        <section class="col-md-2 saveBtn"><i>Save</i></section>
+        <textarea
+          class="col-md-8 border"
+          name="two"
+          id=""
+          cols="30"
+          rows="3"
+        ></textarea>
+        <section class="col-md-2 saveBtn"><i>Add</i></section>
       </section>
-      <section class= "row hour">
+      <section class="row hour">
         <section class="col-md-2 border">3:00</section>
-        <textarea class= "col-md-8 border" name="three" id="" cols="30" rows="3"></textarea>
-        <section class="col-md-2 saveBtn"><i>Save</i></section>
+        <textarea
+          class="col-md-8 border"
+          name="three"
+          id=""
+          cols="30"
+          rows="3"
+        ></textarea>
+        <section class="col-md-2 saveBtn"><i>Add</i></section>
       </section>
-      <section class= "row hour">
+      <section class="row hour">
         <section class="col-md-2 border">4:00</section>
-        <textarea class= "col-md-8 border" name="four" id="" cols="30" rows="3"></textarea>
-        <section class="col-md-2 saveBtn"><i>Save</i></section>
+        <textarea
+          class="col-md-8 border"
+          name="four"
+          id=""
+          cols="30"
+          rows="3"
+        ></textarea>
+        <section class="col-md-2 saveBtn"><i>Add</i></section>
       </section>
-      <section class= "row hour">
+      <section class="row hour">
         <section class="col-md-2 border">5:00</section>
-        <textarea class= "col-md-8 border" name="five" id="" cols="30" rows="3"></textarea>
-        <section class="col-md-2 saveBtn"><i>Save</i></section>
+        <textarea
+          class="col-md-8 border"
+          name="five"
+          id=""
+          cols="30"
+          rows="3"
+        ></textarea>
+        <section class="col-md-2 saveBtn"><i>Add</i></section>
       </section>
-      
-      
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>
+    <script>
+      var date = dayjs().format("MMMM-DD-YYYY");
+
+      $("#currentDay").text(date)
+
+      
+
+      console.log(date)
+      console.log(dayjs(date).format("MMMM-DD-YYYY" + " " + "hh:mm:ss"));
+    </script>
   </body>
 </html>
