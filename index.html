@@ -39,7 +39,9 @@
           cols="30"
           rows="3"
         ></textarea>
-        <section class="col-md-2 saveBtn"><i>Add</i></section>
+        <section class="col-md-2 saveBtn">
+          <i class="far fa-save" for="eight" class="8"></i>
+        </section>
       </section>
       <section class="row hour">
         <section class="col-md-2">9:00</section>
@@ -50,7 +52,9 @@
           cols="30"
           rows="3"
         ></textarea>
-        <section class="col-md-2 saveBtn"><i>Add</i></section>
+        <section class="col-md-2 saveBtn">
+          <i class="far fa-save" for="nine" class="9"></i>
+        </section>
       </section>
       <section class="row hour">
         <section class="col-md-2">10:00</section>
@@ -61,7 +65,9 @@
           cols="30"
           rows="3"
         ></textarea>
-        <section class="col-md-2 saveBtn"><i>Add</i></section>
+        <section class="col-md-2 saveBtn">
+          <i class="far fa-save" for="ten" class="10"></i>
+        </section>
       </section>
       <section class="row hour">
         <section class="col-md-2">11:00</section>
@@ -72,7 +78,9 @@
           cols="30"
           rows="3"
         ></textarea>
-        <section class="col-md-2 saveBtn"><i>Add</i></section>
+        <section class="col-md-2 saveBtn">
+          <i class="far fa-save" for="eleven" class="11"></i>
+        </section>
       </section>
       <section class="row hour">
         <section class="col-md-2">12:00</section>
@@ -83,7 +91,9 @@
           cols="30"
           rows="3"
         ></textarea>
-        <section class="col-md-2 saveBtn"><i>Add</i></section>
+        <section class="col-md-2 saveBtn">
+          <i class="far fa-save" for="twelve" class="12"></i>
+        </section>
       </section>
       <section class="row hour">
         <section class="col-md-2">1:00</section>
@@ -94,7 +104,9 @@
           cols="30"
           rows="3"
         ></textarea>
-        <section class="col-md-2 saveBtn"><i>Add</i></section>
+        <section class="col-md-2 saveBtn">
+          <i class="far fa-save" for="one" class="13"></i>
+        </section>
       </section>
       <section class="row hour">
         <section class="col-md-2">2:00</section>
@@ -105,7 +117,9 @@
           cols="30"
           rows="3"
         ></textarea>
-        <section class="col-md-2 saveBtn"><i>Add</i></section>
+        <section class="col-md-2 saveBtn">
+          <i class="far fa-save" for="two" class="14"></i>
+        </section>
       </section>
       <section class="row hour">
         <section class="col-md-2">3:00</section>
@@ -116,7 +130,9 @@
           cols="30"
           rows="3"
         ></textarea>
-        <section class="col-md-2 saveBtn"><i>Add</i></section>
+        <section class="col-md-2 saveBtn">
+          <i class="far fa-save" for="three" class="15"></i>
+        </section>
       </section>
       <section class="row hour">
         <section class="col-md-2">4:00</section>
@@ -127,23 +143,31 @@
           cols="30"
           rows="3"
         ></textarea>
-        <section class="col-md-2 saveBtn"><i>Add</i></section>
+        <section class="col-md-2 saveBtn">
+          <i class="far fa-save" for="four" class="16"></i>
+        </section>
       </section>
       <section class="row hour">
         <section class="col-md-2">5:00</section>
         <textarea
-          class="col-md-8"
+          class="col-md-8 17"
           name="five"
           id="17"
           cols="30"
           rows="3"
         ></textarea>
-        <section class="col-md-2 saveBtn"><i>Add</i></section>
+        <section class="col-md-2 saveBtn">
+          <i class="far fa-save" for="five" class="17"></i>
+        </section>
       </section>
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <script
+      src="https://kit.fontawesome.com/13cb1109a5.js"
+      crossorigin="anonymous"
+    ></script>
     <script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>
     <script>
       var date = dayjs().format("MMMM DD, YYYY");
@@ -162,9 +186,6 @@
         $("textarea").each(function () {
           var colorId = parseInt($(this).attr("id"));
 
-          console.log(colorId);
-          console.log("hour: " + hour);
-
           if (hour > colorId) {
             $(this).addClass("past");
           } else if (hour == colorId) {
@@ -177,7 +198,24 @@
           }
         });
       }
+      $("i").on("click", function () {
+        var item = $("#17").val().trim();
+        var key = $(this).attr("class");
+        console.log(this);
+        console.log(item);
+        console.log(key);
+        localStorage.setItem("item", JSON.stringify(item));
+        localStorage.setItem("key", JSON.stringify(key));
+      });
+
+      function list() {
+        //  var listItems= JSON.parse(localStorage.getItem("item"));
+        //  var listPosition= JSON.parse(localStorage.getItem("position"));
+        //  var box = $("textarea"[name = listPosition])
+      }
+
       color();
+      // list();
 
       console.log(date);
       console.log(dayjs(date).format("MMMM-DD-YYYY" + " " + "hh:mm:ss"));
