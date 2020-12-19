@@ -147,33 +147,37 @@
     <script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>
     <script>
       var date = dayjs().format("MMMM DD, YYYY");
-      var time = dayjs().format("H");
+      var hour = dayjs().format("H");
       var timeEl = $("<p></p>").addClass("lead").attr("id", "currentTime");
-      var currentTime = dayjs().format("hh:mm a")
+      var currentTime = dayjs().format("hh:mm a");
 
       $("#currentDay").text(date);
       //set time to element and append to jumbotron
       $(timeEl).text(currentTime);
       $(timeEl).appendTo(".jumbotron");
-      
+
+      // console.log("hour: " + hour);
+
       function color() {
-        $("textarea").each (function() {
-          var bgColor = $(this).attr("id");
+        $("textarea").each(function () {
+          var colorId = parseInt($(this).attr("id"));
 
-          console.log(bgColor);
+          console.log(colorId);
+          console.log("hour: " + hour);
 
-          if (time < bgColor){
-            $(this).addClass("future")
-          } else if (time = bgColor) {
-            $(this).addClass("present")
+          if (hour > colorId) {
+            $(this).addClass("past");
+          } else if (hour == colorId) {
+            $(this).removeClass("past");
+            $(this).addClass("present");
           } else {
-            $(this).addClass("past")
+            $(this).removeClass("past");
+            $(this).removeClass("present");
+            $(this).addClass("future");
           }
-
         });
       }
       color();
-
 
       console.log(date);
       console.log(dayjs(date).format("MMMM-DD-YYYY" + " " + "hh:mm:ss"));
