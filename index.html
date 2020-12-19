@@ -99,7 +99,7 @@
       <section class="row hour">
         <section class="col-md-2">2:00</section>
         <textarea
-          class="col-md-8 two"
+          class="col-md-8"
           name="two"
           id="14"
           cols="30"
@@ -110,7 +110,7 @@
       <section class="row hour">
         <section class="col-md-2">3:00</section>
         <textarea
-          class="col-md-8 three"
+          class="col-md-8"
           name="three"
           id="15"
           cols="30"
@@ -121,7 +121,7 @@
       <section class="row hour">
         <section class="col-md-2">4:00</section>
         <textarea
-          class="col-md-8 four"
+          class="col-md-8"
           name="four"
           id="16"
           cols="30"
@@ -132,7 +132,7 @@
       <section class="row hour">
         <section class="col-md-2">5:00</section>
         <textarea
-          class="col-md-8 five"
+          class="col-md-8"
           name="five"
           id="17"
           cols="30"
@@ -146,41 +146,31 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
     <script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>
     <script>
-      var date = dayjs().format("MMMM-DD-YYYY");
+      var date = dayjs().format("MMMM DD, YYYY");
       var time = dayjs().format("H");
-      var bgColor = $("textarea").attr("id")
+      var timeEl = $("<p></p>").addClass("lead").attr("id", "currentTime");
+      var currentTime = dayjs().format("hh:mm a")
 
       $("#currentDay").text(date);
-
-
+      //set time to element and append to jumbotron
+      $(timeEl).text(currentTime);
+      $(timeEl).appendTo(".jumbotron");
+      
       function color() {
-        $("textarea").each ( function() {
-          console.log("color");
+        $("textarea").each (function() {
+          var bgColor = $(this).attr("id");
+
+          console.log(bgColor);
+
           if (time < bgColor){
-            $("textarea").addClass("future")
-          } else if (time == bgColor) {
-            $("textarea").addClass("present")
+            $(this).addClass("future")
+          } else if (time = bgColor) {
+            $(this).addClass("present")
           } else {
-            $("textarea").addClass("past")
+            $(this).addClass("past")
           }
 
-        })
-        // console.log("color")
-        // if (time < bgColor){
-        //   $("textarea").addClass("future")
-        // } else if (time == bgColor) {
-        //   $("textarea").addClass("present")
-        // } else {
-        //   $("textarea").addClass("past")
-        // }
-        // if (time < 14){
-        //   $(".2").addClass("future")
-        // } else if (time = 14) {
-        //   $(".2").addClass("present")
-        // } else {
-        //   $(".2").addClass("past")
-        // }
-
+        });
       }
       color();
 
