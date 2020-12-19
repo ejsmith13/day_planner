@@ -31,110 +31,110 @@
     <div class="container">
       <!-- Timeblocks go here -->
       <section class="row hour">
-        <section class="col-md-2 border">8:00</section>
+        <section class="col-md-2">8:00</section>
         <textarea
-          class="col-md-8 border"
+          class="col-md-8"
           name="eight"
-          id=""
+          id="8"
           cols="30"
           rows="3"
         ></textarea>
         <section class="col-md-2 saveBtn"><i>Add</i></section>
       </section>
       <section class="row hour">
-        <section class="col-md-2 border">9:00</section>
+        <section class="col-md-2">9:00</section>
         <textarea
-          class="col-md-8 border"
+          class="col-md-8"
           name="nine"
-          id=""
+          id="9"
           cols="30"
           rows="3"
         ></textarea>
         <section class="col-md-2 saveBtn"><i>Add</i></section>
       </section>
       <section class="row hour">
-        <section class="col-md-2 border">10:00</section>
+        <section class="col-md-2">10:00</section>
         <textarea
-          class="col-md-8 border"
+          class="col-md-8"
           name="ten"
-          id=""
+          id="10"
           cols="30"
           rows="3"
         ></textarea>
         <section class="col-md-2 saveBtn"><i>Add</i></section>
       </section>
       <section class="row hour">
-        <section class="col-md-2 border">11:00</section>
+        <section class="col-md-2">11:00</section>
         <textarea
-          class="col-md-8 border"
+          class="col-md-8"
           name="eleven"
-          id=""
+          id="11"
           cols="30"
           rows="3"
         ></textarea>
         <section class="col-md-2 saveBtn"><i>Add</i></section>
       </section>
       <section class="row hour">
-        <section class="col-md-2 border">12:00</section>
+        <section class="col-md-2">12:00</section>
         <textarea
-          class="col-md-8 border"
+          class="col-md-8"
           name="twelve"
-          id=""
+          id="12"
           cols="30"
           rows="3"
         ></textarea>
         <section class="col-md-2 saveBtn"><i>Add</i></section>
       </section>
       <section class="row hour">
-        <section class="col-md-2 border">1:00</section>
+        <section class="col-md-2">1:00</section>
         <textarea
-          class="col-md-8 border"
+          class="col-md-8"
           name="one"
-          id=""
+          id="13"
           cols="30"
           rows="3"
         ></textarea>
         <section class="col-md-2 saveBtn"><i>Add</i></section>
       </section>
       <section class="row hour">
-        <section class="col-md-2 border" id= "2">2:00</section>
+        <section class="col-md-2">2:00</section>
         <textarea
-          class="col-md-8 border"
+          class="col-md-8 two"
           name="two"
-          id=""
+          id="14"
           cols="30"
           rows="3"
         ></textarea>
         <section class="col-md-2 saveBtn"><i>Add</i></section>
       </section>
       <section class="row hour">
-        <section class="col-md-2 border">3:00</section>
+        <section class="col-md-2">3:00</section>
         <textarea
-          class="col-md-8 border"
+          class="col-md-8 three"
           name="three"
-          id=""
+          id="15"
           cols="30"
           rows="3"
         ></textarea>
         <section class="col-md-2 saveBtn"><i>Add</i></section>
       </section>
       <section class="row hour">
-        <section class="col-md-2 border">4:00</section>
+        <section class="col-md-2">4:00</section>
         <textarea
-          class="col-md-8 border"
+          class="col-md-8 four"
           name="four"
-          id=""
+          id="16"
           cols="30"
           rows="3"
         ></textarea>
         <section class="col-md-2 saveBtn"><i>Add</i></section>
       </section>
       <section class="row hour">
-        <section class="col-md-2 border">5:00</section>
+        <section class="col-md-2">5:00</section>
         <textarea
-          class="col-md-8 border"
+          class="col-md-8 five"
           name="five"
-          id=""
+          id="17"
           cols="30"
           rows="3"
         ></textarea>
@@ -148,22 +148,42 @@
     <script>
       var date = dayjs().format("MMMM-DD-YYYY");
       var time = dayjs().format("H");
+      var bgColor = $("textarea").attr("id")
 
       $("#currentDay").text(date);
 
 
-      function color(){
-        if (time < 14){
-          $("#2").addClass("past")
-        } else if (time = 14) {
-          $("#2").addClass("present")
-        } else {
-          $("#2").addClass("future")
-        }
-        
+      function color() {
+        $("textarea").each ( function() {
+          console.log("color");
+          if (time < bgColor){
+            $("textarea").addClass("future")
+          } else if (time == bgColor) {
+            $("textarea").addClass("present")
+          } else {
+            $("textarea").addClass("past")
+          }
+
+        })
+        // console.log("color")
+        // if (time < bgColor){
+        //   $("textarea").addClass("future")
+        // } else if (time == bgColor) {
+        //   $("textarea").addClass("present")
+        // } else {
+        //   $("textarea").addClass("past")
+        // }
+        // if (time < 14){
+        //   $(".2").addClass("future")
+        // } else if (time = 14) {
+        //   $(".2").addClass("present")
+        // } else {
+        //   $(".2").addClass("past")
+        // }
+
       }
       color();
-      
+
 
       console.log(date);
       console.log(dayjs(date).format("MMMM-DD-YYYY" + " " + "hh:mm:ss"));
