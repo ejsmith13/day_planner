@@ -40,7 +40,7 @@
           rows="3"
         ></textarea>
         <section class="col-md-2 saveBtn">
-          <i class="far fa-save" for="eight" class="8"></i>
+          <i class="far fa-save" for="eight" id="8"></i>
         </section>
       </section>
       <section class="row hour">
@@ -53,7 +53,7 @@
           rows="3"
         ></textarea>
         <section class="col-md-2 saveBtn">
-          <i class="far fa-save" for="nine" class="9"></i>
+          <i class="far fa-save" for="nine" id="9"></i>
         </section>
       </section>
       <section class="row hour">
@@ -66,7 +66,7 @@
           rows="3"
         ></textarea>
         <section class="col-md-2 saveBtn">
-          <i class="far fa-save" for="ten" class="10"></i>
+          <i class="far fa-save" for="ten" id="10"></i>
         </section>
       </section>
       <section class="row hour">
@@ -79,7 +79,7 @@
           rows="3"
         ></textarea>
         <section class="col-md-2 saveBtn">
-          <i class="far fa-save" for="eleven" class="11"></i>
+          <i class="far fa-save" for="eleven" id="11"></i>
         </section>
       </section>
       <section class="row hour">
@@ -92,7 +92,7 @@
           rows="3"
         ></textarea>
         <section class="col-md-2 saveBtn">
-          <i class="far fa-save" for="twelve" class="12"></i>
+          <i class="far fa-save" for="twelve" id="12"></i>
         </section>
       </section>
       <section class="row hour">
@@ -105,7 +105,7 @@
           rows="3"
         ></textarea>
         <section class="col-md-2 saveBtn">
-          <i class="far fa-save" for="one" class="13"></i>
+          <i class="far fa-save" for="one" id="13"></i>
         </section>
       </section>
       <section class="row hour">
@@ -118,7 +118,7 @@
           rows="3"
         ></textarea>
         <section class="col-md-2 saveBtn">
-          <i class="far fa-save" for="two" class="14"></i>
+          <i class="far fa-save" for="two" id="14"></i>
         </section>
       </section>
       <section class="row hour">
@@ -131,7 +131,7 @@
           rows="3"
         ></textarea>
         <section class="col-md-2 saveBtn">
-          <i class="far fa-save" for="three" class="15"></i>
+          <i class="far fa-save" for="three" id="15"></i>
         </section>
       </section>
       <section class="row hour">
@@ -144,7 +144,7 @@
           rows="3"
         ></textarea>
         <section class="col-md-2 saveBtn">
-          <i class="far fa-save" for="four" class="16"></i>
+          <i class="far fa-save" for="four" id="16"></i>
         </section>
       </section>
       <section class="row hour">
@@ -157,7 +157,7 @@
           rows="3"
         ></textarea>
         <section class="col-md-2 saveBtn">
-          <i class="far fa-save" for="five" class="17"></i>
+          <i class="far fa-save" for="five" id="17"></i>
         </section>
       </section>
     </div>
@@ -198,24 +198,33 @@
           }
         });
       }
+      
       $("i").on("click", function () {
-        var item = $("#17").val().trim();
-        var key = $(this).attr("class");
-        console.log(this);
-        console.log(item);
-        console.log(key);
-        localStorage.setItem("item", JSON.stringify(item));
-        localStorage.setItem("key", JSON.stringify(key));
+        var j = $(this).attr("id");
+        console.log ("this is:" + j);
+        var area = "textarea#" + j; 
+        console.log("clickon item: "+ area);
+        
+        console.log(area)
+        var item = $(area).val();
+        console.log("clickon item: " + item);
+        localStorage.setItem(j, JSON.stringify(item));
       });
 
       function list() {
-        //  var listItems= JSON.parse(localStorage.getItem("item"));
-        //  var listPosition= JSON.parse(localStorage.getItem("position"));
-        //  var box = $("textarea"[name = listPosition])
+        for (var j = 8; j < 18; j++) {
+          var listItems = JSON.parse(localStorage.getItem(JSON.stringify(j)));
+          console.log(listItems);
+          var area = "textarea#" + j;
+          
+          // JSON.stringify(areaF);
+          console.log(area);
+          $(area).text(listItems);
+        }
       }
 
       color();
-      // list();
+      list();
 
       console.log(date);
       console.log(dayjs(date).format("MMMM-DD-YYYY" + " " + "hh:mm:ss"));
