@@ -180,8 +180,8 @@
       $(timeEl).text(currentTime);
       $(timeEl).appendTo(".jumbotron");
 
-      // console.log("hour: " + hour);
-
+      
+      //sets color of field dependent on time of day
       function color() {
         $("textarea").each(function () {
           var colorId = parseInt($(this).attr("id"));
@@ -198,26 +198,23 @@
           }
         });
       }
-      
+      //click on even for saving info from textarea to local storage
       $("i").on("click", function () {
         var j = $(this).attr("id");
-        console.log ("this is:" + j);
-        var area = "textarea#" + j; 
-        console.log("clickon item: "+ area);
-        
-        console.log(area)
+        // console.log("this is:" + j);
+        var area = "textarea#" + j;
+        // console.log("clickon item: " + area);
+        // console.log(area);
         var item = $(area).val();
-        console.log("clickon item: " + item);
+        // console.log("clickon item: " + item);
         localStorage.setItem(j, JSON.stringify(item));
       });
-
+      //function to list items in local storage.
       function list() {
         for (var j = 8; j < 18; j++) {
           var listItems = JSON.parse(localStorage.getItem(JSON.stringify(j)));
           console.log(listItems);
           var area = "textarea#" + j;
-          
-          // JSON.stringify(areaF);
           console.log(area);
           $(area).text(listItems);
         }
